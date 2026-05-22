@@ -1,0 +1,10 @@
+name: core
+kind: infrastructure
+version: 0.1.0
+description: >-
+  The common-core primitive. Always installed. Seeds AGENTS.md, CORE.md, the
+  baseline frontmatter schema, .gitignore, and the seven baseline skills
+  (ingest, wiki-search, wiki-lock, wiki-lint, wiki-conflict, wiki-doctor,
+  wiki-research).
+requires: []
+contributes_to: []

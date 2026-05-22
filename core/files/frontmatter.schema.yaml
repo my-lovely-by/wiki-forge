@@ -1,0 +1,62 @@
+# frontmatter.schema.yaml — the contract every wiki page declares
+#
+# Vault: {vault_name}
+# Recipe: {recipe_name}
+#
+# Every page under wiki/ has YAML frontmatter that conforms to this
+# schema. Content-type primitives extend the `types`, `statuses`, and
+# `fields` sections via managed regions; the kit owns the inside of each
+# `# BEGIN MANAGED: id` / `# END MANAGED: id` block, your edits outside
+# the markers survive.
+
+required:
+  - type
+  - status
+  - provenance
+  - created
+  - modified
+
+# Allowed values for `type:`. Content-type primitives append to this list.
+types:
+  # BEGIN MANAGED: types
+  # Populated by content-type primitives via `wiki add`.
+  # END MANAGED: types
+
+# Allowed values for `status:`. Most pages start `active`; archive when
+# the underlying thing is no longer relevant; draft for in-progress
+# pages.
+statuses:
+  - active
+  - draft
+  - archived
+
+# Allowed values for `provenance:`.
+provenance:
+  - extracted    # verbatim from a source; cite in a footnote
+  - synthesized  # agent-written across multiple sources / prior pages
+  - mixed        # both
+
+# Field-level schema. The baseline below covers every page; content-type
+# primitives append type-scoped fields inside the managed region.
+fields:
+  type:
+    type: string
+  status:
+    type: string
+  provenance:
+    type: string
+  created:
+    type: date
+    format: YYYY-MM-DD
+  modified:
+    type: date
+    format: YYYY-MM-DD
+  tags:
+    type: list
+    items: string
+  source:
+    type: string
+    optional: true
+  # BEGIN MANAGED: fields
+  # Populated by content-type primitives via `wiki add`.
+  # END MANAGED: fields
