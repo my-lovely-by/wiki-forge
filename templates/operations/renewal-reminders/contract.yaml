@@ -1,0 +1,20 @@
+name: renewal-reminders
+description: >-
+  Walk vendor-contract pages and surface renewals coming due inside a
+  look-ahead window, plus open-ended contracts with no end date.
+period: monthly
+skill: renewal-reminders
+inputs:
+  lookahead_days:
+    type: integer
+    default: 90
+    description: Number of future days to scan for upcoming renewals.
+  include_open_ended:
+    type: boolean
+    default: true
+    description: Whether to surface contracts with no `contract_end` set.
+outputs:
+  reminders_page:
+    type: page
+    path_pattern: outputs/renewals/{run_date}.md
+    description: One page per run, keyed by run date.

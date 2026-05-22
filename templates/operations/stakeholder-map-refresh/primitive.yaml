@@ -1,0 +1,12 @@
+name: stakeholder-map-refresh
+kind: operation
+version: 0.1.0
+description: >-
+  Refresh the per-project stakeholder map from existing stakeholder-update
+  pages. Walks `wiki/stakeholder-updates/`, groups by project, and renders
+  one durable map page per project at `outputs/stakeholder-maps/<project>.md`
+  listing the audience members who actually receive updates plus their
+  recency cadence. Idempotent per project.
+requires:
+  - stakeholder-update
+contributes_to: []

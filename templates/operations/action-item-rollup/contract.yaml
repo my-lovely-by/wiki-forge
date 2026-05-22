@@ -1,0 +1,26 @@
+name: action-item-rollup
+description: >-
+  Walk recent meeting follow-ups, stakeholder-update asks,
+  customer-feedback follow-ups, and interview follow-ups; produce one
+  owner-grouped digest page.
+period: weekly
+skill: action-item-rollup
+inputs:
+  window_days:
+    type: integer
+    default: 30
+    description: Number of past days of content to scan.
+  sources:
+    type: list
+    items: content-type
+    default:
+      - meeting
+      - stakeholder-update
+      - customer-feedback
+      - interview
+    description: Content-types whose follow-up fields contribute to the rollup.
+outputs:
+  rollup_page:
+    type: page
+    path_pattern: outputs/action-items/{window_end}.md
+    description: One page per run, keyed by window end date.

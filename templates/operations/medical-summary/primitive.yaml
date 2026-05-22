@@ -1,0 +1,13 @@
+name: medical-summary
+kind: operation
+version: 0.1.0
+description: >-
+  Produce a current-state medical summary for a family member: active
+  conditions, current medications, allergies, recent visits, outstanding
+  follow-ups. Suitable for sharing with a provider, attaching to a
+  school form, or referencing in an emergency. Reads the person's
+  medical page plus shared `medications.md`, `providers.md`, and
+  `insurance.md`.
+requires:
+  - medical-record
+contributes_to: []

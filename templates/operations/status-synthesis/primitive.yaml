@@ -1,0 +1,13 @@
+name: status-synthesis
+kind: operation
+version: 0.1.0
+description: >-
+  Synthesize a cross-project status snapshot from recent stakeholder-update,
+  decision, and customer-feedback pages. Surfaces what shipped, what's at
+  risk, and what themes are emerging — the "what should the team know this
+  week" briefing. Distinct from `weekly-digest`, which is meeting-centric.
+requires:
+  - stakeholder-update
+  - decision
+  - customer-feedback
+contributes_to: []

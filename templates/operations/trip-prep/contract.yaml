@@ -1,0 +1,21 @@
+name: trip-prep
+description: >-
+  Assemble a packing list per family member and a pre-trip task list
+  for an upcoming trip; write back to the trip page itself.
+period: ad-hoc
+skill: trip-prep
+inputs:
+  trip:
+    type: page
+    description: Wikilink or path to the trip page under `wiki/trips/upcoming/`.
+  theme:
+    type: string
+    optional: true
+    description: Optional theme hint (e.g. "light packing", "extra-cold weather", "kid-friendly only").
+outputs:
+  trip_page:
+    type: page
+    path_pattern: wiki/trips/upcoming/{trip}.md
+    description: >-
+      The existing trip page, augmented in place with `## Packing list`
+      and `## Pre-trip tasks` sections.

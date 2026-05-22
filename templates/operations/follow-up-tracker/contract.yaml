@@ -1,0 +1,30 @@
+name: follow-up-tracker
+description: >-
+  Surface every follow-up due in a configurable window across the
+  vault — inline `> [!important]` callouts plus standalone `action-item`
+  pages. One report per run, grouped by overdue / due-30 / due-30-60.
+period: weekly
+skill: follow-up-tracker
+inputs:
+  window_days:
+    type: int
+    default: 60
+    description: How many days ahead to look. Overdue items are always surfaced.
+  filter:
+    type: string
+    optional: true
+    description: >-
+      Optional restriction (e.g. "medical only", "for jake-doe", "vehicle").
+      Falls through to a substring match on source path or owner.
+  scope:
+    type: list
+    items: string
+    optional: true
+    description: >-
+      Subset of content-types to scan (e.g. `[meeting, medical-record]`).
+      Defaults to every type that emits follow-up callouts.
+outputs:
+  follow_up_report:
+    type: page
+    path_pattern: outputs/follow-ups/{run_date}.md
+    description: One page per run; the latest is symlinked or surfaced as `latest.md`.

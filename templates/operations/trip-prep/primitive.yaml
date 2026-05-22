@@ -1,0 +1,12 @@
+name: trip-prep
+kind: operation
+version: 0.1.0
+description: >-
+  Pre-trip packing list and task checklist for an upcoming trip. Reads
+  the trip page, family member docs, and past trip pages for what
+  worked. Writes back to the same trip page under
+  `## Packing list` and `## Pre-trip tasks` sections — augments rather
+  than creates a separate page.
+requires:
+  - trip-doc
+contributes_to: []

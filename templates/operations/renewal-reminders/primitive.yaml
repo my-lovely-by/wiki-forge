@@ -1,0 +1,11 @@
+name: renewal-reminders
+kind: operation
+version: 0.1.0
+description: >-
+  Surface vendor contracts whose renewal date falls inside a configured
+  look-ahead window. Walks `wiki/vendor-contracts/`, finds renewals due
+  in the next N days, and writes one digest page listing them plus any
+  open-ended contracts (no `contract_end`) that quietly accrue cost.
+requires:
+  - vendor-contract
+contributes_to: []

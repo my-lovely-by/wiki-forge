@@ -1,0 +1,10 @@
+name: projects
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for projects in the vault. Seeds `wiki/projects/` with a README
+  explaining the conventions content-type ingesters (stakeholder-update,
+  decision, interview, etc.) and operations (status-synthesis,
+  action-item-rollup) follow when creating or linking project pages.
+requires: []
+contributes_to: []

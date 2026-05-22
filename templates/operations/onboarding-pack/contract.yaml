@@ -1,0 +1,21 @@
+name: onboarding-pack
+description: >-
+  Assemble an onboarding briefing for a newcomer joining a customer or
+  project, by walking the relevant ontology page plus recent decisions
+  and customer-feedback. The output is one durable page citing every
+  source it summarizes.
+period: on-demand
+skill: onboarding-pack
+inputs:
+  scope:
+    type: string
+    description: "Scope of the pack: either `customer:<name>` or `project:<name>` (kebab-case page name)."
+  lookback_days:
+    type: integer
+    default: 180
+    description: How far back to include decisions and feedback.
+outputs:
+  pack_page:
+    type: page
+    path_pattern: outputs/onboarding/{scope}.md
+    description: One page per scope; idempotent — re-running overwrites.

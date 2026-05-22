@@ -1,0 +1,22 @@
+name: weekly-digest
+description: >-
+  Summarize the week's activity across the vault into one durable
+  digest page. v0.1 walks meeting pages within the ISO-week window;
+  later versions widen to other content-types.
+period: weekly
+skill: weekly-digest
+inputs:
+  window:
+    type: iso_week
+    description: ISO week (e.g. 2026-W20). Defaults to the most recent complete week.
+  sources:
+    type: list
+    items: content-type
+    default:
+      - meeting
+    description: Content-types whose pages contribute to the digest.
+outputs:
+  digest_page:
+    type: page
+    path_pattern: outputs/digests/{window}.md
+    description: One page per week; idempotent for a given window.

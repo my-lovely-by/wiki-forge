@@ -1,0 +1,11 @@
+name: vendors
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for the people and businesses the household transacts
+  with: the plumber, the pediatric clinic, the car insurer, the
+  brokerage. Seeds `wiki/vendors/` with a README. Content-type
+  primitives that *reference* vendors (`receipt`, `tax-document`)
+  declare any schema fields that name them.
+requires: []
+contributes_to: []

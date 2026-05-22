@@ -1,0 +1,10 @@
+name: medical
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for the household's health record: per-person medical pages,
+  a shared medications list, providers, and insurance details. Seeds
+  `wiki/medical/` with a README. Content-type primitives that *create*
+  medical pages (e.g. `medical-record`) declare the schema fields.
+requires: []
+contributes_to: []

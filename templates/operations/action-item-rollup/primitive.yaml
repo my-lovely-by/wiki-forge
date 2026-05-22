@@ -1,0 +1,14 @@
+name: action-item-rollup
+kind: operation
+version: 0.1.0
+description: >-
+  Roll up open action items across meeting follow-ups, stakeholder-update
+  asks, customer-feedback follow-ups, and interview follow-ups into one
+  owner-grouped digest. Surfaces what each named owner has on their plate
+  across every recent content source. Idempotent for a given window.
+requires:
+  - meeting
+  - stakeholder-update
+  - customer-feedback
+  - interview
+contributes_to: []

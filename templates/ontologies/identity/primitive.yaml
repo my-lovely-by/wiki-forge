@@ -1,0 +1,12 @@
+name: identity
+kind: ontology
+version: 0.1.0
+description: >-
+  Single-owner identity stub for the personal recipe. Seeds an
+  `identity.md` page at the vault root with the owner's name, pronouns,
+  role, and timezone (interpolated via `INTERPOLATED_FILES`), plus a
+  `wiki/identity/README.md` explaining the page's purpose. Companion to
+  the `people` ontology: `people/` is who you interact with;
+  `identity.md` is the one durable page about the vault's owner.
+requires: []
+contributes_to: []

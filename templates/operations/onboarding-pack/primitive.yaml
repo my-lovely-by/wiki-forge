@@ -1,0 +1,14 @@
+name: onboarding-pack
+kind: operation
+version: 0.1.0
+description: >-
+  Produce a one-page onboarding briefing for a new account-team member or
+  project contributor, scoped to a named customer or project. Walks the
+  customer / project page plus recent decisions and customer-feedback to
+  assemble the durable context a newcomer needs in their first week.
+requires:
+  - customers
+  - projects
+  - decision
+  - customer-feedback
+contributes_to: []

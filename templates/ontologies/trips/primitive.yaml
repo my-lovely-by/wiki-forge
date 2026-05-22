@@ -1,0 +1,10 @@
+name: trips
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for travel: one page per trip, upcoming and past. Seeds
+  `wiki/trips/` with a README describing how the `trip-doc` content-type
+  and the `trip-prep` operation cooperate. Does not declare schema
+  fields itself.
+requires: []
+contributes_to: []

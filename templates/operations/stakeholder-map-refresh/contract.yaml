@@ -1,0 +1,21 @@
+name: stakeholder-map-refresh
+description: >-
+  Refresh the per-project stakeholder map by reading stakeholder-update
+  pages and producing one map page per project. v0.1 walks every project
+  with at least one stakeholder-update in the look-back window.
+period: monthly
+skill: stakeholder-map-refresh
+inputs:
+  window_days:
+    type: integer
+    default: 90
+    description: Number of past days of stakeholder-updates to consider.
+  project:
+    type: string
+    optional: true
+    description: Scope the run to one project (kebab-case page name). Default is all projects with recent updates.
+outputs:
+  map_page:
+    type: page
+    path_pattern: outputs/stakeholder-maps/{project}.md
+    description: One page per project; idempotent for a given project.

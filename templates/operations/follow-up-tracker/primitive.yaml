@@ -1,0 +1,13 @@
+name: follow-up-tracker
+kind: operation
+version: 0.1.0
+description: >-
+  Scan the vault for follow-up callouts and standalone `action-item`
+  pages; surface what's overdue, due in the next 30 days, and due 30-60
+  days out. Reads `> [!important] Follow-up due by YYYY-MM-DD` callouts
+  on meeting, medical-record, receipt, and other pages, plus the open
+  state on action-item pages. Writes one report per run under
+  `outputs/follow-ups/`.
+requires:
+  - action-item
+contributes_to: []

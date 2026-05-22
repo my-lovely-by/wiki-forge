@@ -1,0 +1,12 @@
+name: weekly-digest
+kind: operation
+version: 0.1.0
+description: >-
+  Weekly summary across meetings and other recent activity in the vault.
+  Renders one digest page per ISO week under `outputs/digests/`, citing
+  the pages it summarizes. Requires `meeting` because the v0.1 digest
+  reads meeting decisions and follow-ups; later content-types may also
+  feed in.
+requires:
+  - meeting
+contributes_to: []

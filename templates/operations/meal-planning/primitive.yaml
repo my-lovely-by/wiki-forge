@@ -1,0 +1,12 @@
+name: meal-planning
+kind: operation
+version: 0.1.0
+description: >-
+  Weekly family meal plan with shopping list. Reads the recipe library
+  under `wiki/food/`, dietary notes, and last week's plan; writes one
+  plan page per week under `outputs/meal-plans/`. Requires the `recipe`
+  content-type because the v0.1 planner picks from recipe pages; the
+  `food` ontology is pulled in transitively.
+requires:
+  - recipe
+contributes_to: []

@@ -1,0 +1,27 @@
+name: medical-summary
+description: >-
+  Produce a current-state medical summary page for a person, tailored
+  to a visit context (annual physical, new specialist, school form, ER
+  intake). Sourced from the person's medical record and shared
+  medications / providers / insurance pages.
+period: ad-hoc
+skill: medical-summary
+inputs:
+  person:
+    type: string
+    description: Canonical person name (as in `wiki/people/<name>.md`).
+  context:
+    type: string
+    optional: true
+    description: >-
+      Visit context — "annual physical", "new specialist", "school form",
+      "ER intake". Tailors the emphasis of the summary.
+  history_months:
+    type: int
+    default: 12
+    description: Visit history window in months. Defaults to 12.
+outputs:
+  medical_summary_page:
+    type: page
+    path_pattern: outputs/medical-summaries/{person}-{run_date}.md
+    description: Versioned per run; the previous summary is marked outdated, not deleted.

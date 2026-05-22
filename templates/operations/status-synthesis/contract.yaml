@@ -1,0 +1,24 @@
+name: status-synthesis
+description: >-
+  Synthesize a cross-project status snapshot for a window by walking
+  recent stakeholder-updates, decisions, and customer-feedback. Produces
+  one digest page citing every source it summarizes.
+period: weekly
+skill: status-synthesis
+inputs:
+  window:
+    type: iso_week
+    description: ISO week (e.g. 2026-W20). Defaults to the most recent complete week.
+  sources:
+    type: list
+    items: content-type
+    default:
+      - stakeholder-update
+      - decision
+      - customer-feedback
+    description: Content-types whose pages contribute to the synthesis.
+outputs:
+  synthesis_page:
+    type: page
+    path_pattern: outputs/status/{window}.md
+    description: One page per week; idempotent for a given window.

@@ -1,0 +1,10 @@
+name: domains
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for subject-matter domains in the vault. Seeds `wiki/domains/`
+  with a README explaining the conventions content-type ingesters (interview,
+  decision, customer-feedback) and operations (status-synthesis) follow when
+  creating or linking domain pages.
+requires: []
+contributes_to: []

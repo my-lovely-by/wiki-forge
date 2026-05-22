@@ -1,0 +1,11 @@
+name: food
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for food in the vault: recipe library, dietary notes, and
+  weekly meal plans. Seeds `wiki/food/` with a README explaining the
+  conventions the `recipe` content-type and the `meal-planning` operation
+  follow. Does not declare schema fields itself — content-type primitives
+  that write here own that.
+requires: []
+contributes_to: []

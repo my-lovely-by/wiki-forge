@@ -1,0 +1,9 @@
+name: people
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for people in the vault. Seeds `wiki/people/` with a README
+  explaining the conventions content-type ingesters (meeting, interview,
+  stakeholder-update, etc.) follow when creating or linking person pages.
+requires: []
+contributes_to: []

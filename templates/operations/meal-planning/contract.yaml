@@ -1,0 +1,25 @@
+name: meal-planning
+description: >-
+  Produce a weekly family meal plan with shopping list. v0.1 reads
+  recipe pages under `wiki/food/`, the dietary-notes page, and the most
+  recent meal plan for repetition avoidance.
+period: weekly
+skill: meal-planning
+inputs:
+  window:
+    type: iso_week
+    description: ISO week the plan covers. Defaults to the next upcoming week.
+  theme:
+    type: string
+    optional: true
+    description: Optional theme hint (e.g. "easy week — kids' sports", "trying Korean").
+  household:
+    type: list
+    items: string
+    optional: true
+    description: Subset of household to plan for. Defaults to everyone in `wiki/food/dietary-notes.md`.
+outputs:
+  meal_plan_page:
+    type: page
+    path_pattern: outputs/meal-plans/{window}.md
+    description: One page per week; idempotent for a given window.

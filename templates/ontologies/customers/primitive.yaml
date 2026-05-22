@@ -1,0 +1,11 @@
+name: customers
+kind: ontology
+version: 0.1.0
+description: >-
+  Folder shape for customers in the vault. Seeds `wiki/customers/` with a
+  README explaining the conventions content-type ingesters
+  (customer-feedback, vendor-contract, stakeholder-update, interview) and
+  operations (renewal-reminders, onboarding-pack) follow when creating or
+  linking customer pages.
+requires: []
+contributes_to: []
