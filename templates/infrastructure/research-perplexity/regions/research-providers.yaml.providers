@@ -1,0 +1,8 @@
+perplexity:
+  api_key_env: PERPLEXITY_API_KEY
+  endpoint: https://api.perplexity.ai/chat/completions
+  model: sonar-pro
+  cost_signal: low
+  strengths:
+    - current_web_state
+    - cited_factual_lookup

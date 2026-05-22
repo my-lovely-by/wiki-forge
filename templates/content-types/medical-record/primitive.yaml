@@ -1,0 +1,26 @@
+name: medical-record
+kind: content-type
+version: 0.1.0
+description: >-
+  Medical-record page type. Ships an ingester skill (capture a visit
+  summary, EOB, lab result, or prescription note), a page template for
+  per-person medical histories, and the schema contributions that make
+  `type: medical-record` valid with medical-scoped fields. Updates
+  `wiki/medical/medications.md` and `wiki/medical/providers.md` as
+  side-effects of an ingest.
+requires:
+  - medical
+  - people
+routing:
+  filename_patterns:
+    - "EOB-*"
+    - "*-eob-*"
+    - "*visit-summary*"
+    - "*lab-result*"
+    - "*lab-results*"
+    - "*discharge-summary*"
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

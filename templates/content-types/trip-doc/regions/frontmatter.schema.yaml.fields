@@ -1,0 +1,18 @@
+  trip_destination:
+    type: string
+    when: type == trip-doc
+  trip_start_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == trip-doc
+  trip_end_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == trip-doc
+  trip_travelers:
+    type: list
+    items: string
+    when: type == trip-doc
+  trip_status:
+    type: string
+    when: type == trip-doc

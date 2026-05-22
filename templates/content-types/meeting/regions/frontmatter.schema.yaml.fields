@@ -1,0 +1,18 @@
+  meeting_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == meeting
+  meeting_attendees:
+    type: list
+    items: string
+    when: type == meeting
+  meeting_decisions:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting
+  meeting_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting

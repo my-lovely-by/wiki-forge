@@ -1,0 +1,8 @@
+gemini:
+  api_key_env: GEMINI_API_KEY
+  endpoint: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent
+  model: gemini-2.5-pro
+  cost_signal: medium
+  strengths:
+    - long_synthesis
+    - grounded_web_search

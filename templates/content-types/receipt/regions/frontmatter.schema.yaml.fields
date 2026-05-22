@@ -1,0 +1,14 @@
+  receipt_vendor:
+    type: string
+    when: type == receipt
+  receipt_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == receipt
+  receipt_amount:
+    type: string
+    when: type == receipt
+  receipt_category:
+    type: string
+    optional: true
+    when: type == receipt

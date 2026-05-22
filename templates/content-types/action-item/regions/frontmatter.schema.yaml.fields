@@ -1,0 +1,15 @@
+  action_item_owner:
+    type: string
+    when: type == action-item
+  action_item_due:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == action-item
+  action_item_state:
+    type: string
+    when: type == action-item
+  action_item_source:
+    type: string
+    optional: true
+    when: type == action-item

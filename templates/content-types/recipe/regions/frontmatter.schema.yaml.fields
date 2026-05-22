@@ -1,0 +1,17 @@
+  recipe_servings:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_prep_time:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_cook_time:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_dietary:
+    type: list
+    items: string
+    optional: true
+    when: type == recipe

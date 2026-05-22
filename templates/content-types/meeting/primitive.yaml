@@ -1,0 +1,23 @@
+name: meeting
+kind: content-type
+version: 0.1.0
+description: >-
+  Meeting page type. Ships an ingester skill (paste a transcript or notes,
+  get a structured meeting page with attendees, decisions, follow-ups),
+  a page template, and the schema contributions that make `type: meeting`
+  a valid value with meeting-scoped fields.
+requires:
+  - people
+routing:
+  filename_patterns:
+    - "*transcript*"
+    - "*meeting-notes*"
+    - "*standup*"
+  file_extensions:
+    - .vtt
+    - .srt
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

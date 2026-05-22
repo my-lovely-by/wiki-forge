@@ -1,0 +1,8 @@
+semantic-scholar:
+  api_key_env: SEMANTIC_SCHOLAR_API_KEY
+  endpoint: https://api.semanticscholar.org/graph/v1/paper/search
+  model: graph-v1
+  cost_signal: free
+  strengths:
+    - peer_reviewed
+    - structured_metadata

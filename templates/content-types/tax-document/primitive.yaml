@@ -1,0 +1,25 @@
+name: tax-document
+kind: content-type
+version: 0.1.0
+description: >-
+  Tax-document page type. Ships an ingester skill (capture a W-2, 1099,
+  1098, K-1, brokerage year-end statement, or tax-prep summary), a page
+  template, and the schema contributions that make `type: tax-document`
+  valid with tax-scoped fields. Issuer pages live under `wiki/vendors/`.
+  SSNs are redacted in body before write — the raw PDF stays in raw/.
+requires:
+  - vendors
+routing:
+  filename_patterns:
+    - "W-2*"
+    - "W2-*"
+    - "1099-*"
+    - "K-1*"
+    - "1098-*"
+    - "form-1040*"
+    - "*-tax-summary*"
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

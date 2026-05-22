@@ -1,0 +1,19 @@
+name: research-semantic-scholar
+kind: infrastructure
+version: 0.1.0
+description: >-
+  Semantic Scholar Graph provider for `wiki research`. Contributes
+  one block to the shared research-providers.yaml managed region
+  "providers" naming the Semantic Scholar Graph API paper/search
+  endpoint and the env var the dispatcher reads
+  (SEMANTIC_SCHOLAR_API_KEY). The env var is **optional** — Semantic
+  Scholar offers a keyless tier; the provider sends `x-api-key`
+  only when the variable resolves to a non-empty string and bumps
+  the retry budget for the keyless rate-limit's variance. Requires
+  the seed primitive (infrastructure:research) so the shared config
+  file exists on disk before the aggregator writes the region.
+requires:
+  - research
+contributes_to:
+  - file: research-providers.yaml
+    region: providers

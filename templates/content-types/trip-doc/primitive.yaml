@@ -1,0 +1,24 @@
+name: trip-doc
+kind: content-type
+version: 0.1.0
+description: >-
+  Trip page type. Ships an ingester skill (capture a booking confirmation
+  for a hotel, flight, rental car, or activity), a page template, and the
+  schema contributions that make `type: trip-doc` valid with trip-scoped
+  fields. Pairs with `trip-prep` (the operation that writes packing and
+  pre-departure tasks back to the same page).
+requires:
+  - trips
+  - people
+routing:
+  filename_patterns:
+    - "*itinerary*"
+    - "*booking-confirmation*"
+    - "*flight-confirmation*"
+    - "*hotel-confirmation*"
+    - "*reservation*"
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

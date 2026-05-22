@@ -1,0 +1,19 @@
+name: interview
+kind: content-type
+version: 0.1.0
+description: >-
+  Interview page type. Ships an ingester skill (paste a transcript, notes,
+  or recording summary and get a structured interview page), a page template,
+  and the schema contributions that make `type: interview` a valid value
+  with interview-scoped fields. Covers user research, customer-discovery,
+  and hiring conversations.
+requires:
+  - people
+# No routing: block — manual-only. Interview transcripts arrive as pasted
+# prose with no reliable filename/extension signal; the user reaches this
+# primitive via `wiki ingest --as interview`.
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

@@ -1,0 +1,12 @@
+name: research
+kind: infrastructure
+version: 0.1.0
+description: >-
+  The shared research-dispatch surface. Ships the seed
+  research-providers.yaml at the vault root (one managed region named
+  "providers") that every infrastructure:research-* provider primitive
+  contributes a config block to. Opt-in across all recipes — install
+  via `wiki add infrastructure:research`, or let `wiki add
+  infrastructure:research-<provider>` pull this in via its requires
+  closure. See docs/specs/task-18-research-perplexity/spec.md and
+  ADR-0007 (shared infra config files at vault root).

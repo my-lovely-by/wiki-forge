@@ -1,0 +1,9 @@
+# llm-wiki-kit research providers config.
+#
+# The block between BEGIN/END MANAGED below is kit-owned — installing
+# a provider primitive (e.g. `wiki add infrastructure:research-perplexity`)
+# adds an entry here automatically. Edits outside the markers are
+# preserved across `wiki upgrade` runs.
+
+# BEGIN MANAGED: providers
+# END MANAGED: providers

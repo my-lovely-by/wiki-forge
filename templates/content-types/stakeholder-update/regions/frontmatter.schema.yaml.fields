@@ -1,0 +1,29 @@
+  update_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == stakeholder-update
+  update_project:
+    type: string
+    when: type == stakeholder-update
+  update_audience:
+    type: list
+    items: string
+    when: type == stakeholder-update
+  update_status:
+    type: string
+    when: type == stakeholder-update
+  update_highlights:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update
+  update_risks:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update
+  update_asks:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update

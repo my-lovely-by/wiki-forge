@@ -1,0 +1,17 @@
+  tax_document_year:
+    type: string
+    when: type == tax-document
+  tax_document_form:
+    type: string
+    when: type == tax-document
+  tax_document_issuer:
+    type: string
+    when: type == tax-document
+  tax_document_recipient:
+    type: string
+    optional: true
+    when: type == tax-document
+  tax_document_amount:
+    type: string
+    optional: true
+    when: type == tax-document

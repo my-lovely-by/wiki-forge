@@ -1,0 +1,20 @@
+name: action-item
+kind: content-type
+version: 0.1.0
+description: >-
+  Standalone action-item page type. Most action items live inline on
+  other pages (meeting follow-ups, medical recheck callouts), but some
+  warrant their own page — a household chore being tracked over weeks,
+  a project task with sub-items. Ships a page template plus the schema
+  contributions that make `type: action-item` valid with owner / due /
+  source fields. Pairs with the `follow-up-tracker` operation.
+requires:
+  - people
+# No routing: block — manual-only. Standalone action items are typed in
+# directly (no filename or extension to match on); reach this primitive
+# via `wiki ingest --as action-item`.
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

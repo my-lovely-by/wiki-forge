@@ -1,0 +1,29 @@
+  contract_vendor:
+    type: string
+    when: type == vendor-contract
+  contract_start:
+    type: date
+    format: YYYY-MM-DD
+    when: type == vendor-contract
+  contract_end:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == vendor-contract
+  contract_renewal_date:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == vendor-contract
+  contract_amount:
+    type: string
+    optional: true
+    when: type == vendor-contract
+  contract_owner:
+    type: string
+    when: type == vendor-contract
+  contract_terms_summary:
+    type: list
+    items: string
+    optional: true
+    when: type == vendor-contract

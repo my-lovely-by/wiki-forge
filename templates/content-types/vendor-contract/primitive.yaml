@@ -1,0 +1,22 @@
+name: vendor-contract
+kind: content-type
+version: 0.1.0
+description: >-
+  Vendor-contract page type. Ships an ingester skill (paste contract terms,
+  a renewal notice, or a procurement summary and get a structured contract
+  page), a page template, and the schema contributions that make
+  `type: vendor-contract` a valid value with contract-scoped fields. Feeds
+  `renewal-reminders`.
+requires: []
+routing:
+  filename_patterns:
+    - "*contract*"
+    - "*-agreement*"
+    - "*-msa*"
+    - "*-sow*"
+    - "*renewal-notice*"
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

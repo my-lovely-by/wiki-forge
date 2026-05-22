@@ -1,0 +1,20 @@
+name: receipt
+kind: content-type
+version: 0.1.0
+description: >-
+  Receipt page type. Ships an ingester skill (capture a receipt photo,
+  PDF, statement entry, or emailed receipt), a page template, and the
+  schema contributions that make `type: receipt` valid with receipt-
+  scoped fields. Vendor pages are stubbed on first reference under
+  `wiki/vendors/`; warranty and tax-relevant items surface as flags.
+requires:
+  - vendors
+routing:
+  filename_patterns:
+    - "*receipt*"
+    - "*-receipt-*"
+contributes_to:
+  - file: frontmatter.schema.yaml
+    region: types
+  - file: frontmatter.schema.yaml
+    region: fields

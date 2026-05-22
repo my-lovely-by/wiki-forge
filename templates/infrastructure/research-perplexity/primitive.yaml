@@ -1,0 +1,15 @@
+name: research-perplexity
+kind: infrastructure
+version: 0.1.0
+description: >-
+  Perplexity provider for `wiki research`. Contributes one block to the
+  shared research-providers.yaml managed region "providers", naming the
+  Perplexity HTTP endpoint, the default model (sonar-pro), and the env
+  var the dispatcher reads (PERPLEXITY_API_KEY). Requires the seed
+  primitive (infrastructure:research) so the shared config file exists
+  on disk before the aggregator writes the region.
+requires:
+  - research
+contributes_to:
+  - file: research-providers.yaml
+    region: providers

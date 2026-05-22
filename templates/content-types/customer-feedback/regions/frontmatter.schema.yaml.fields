@@ -1,0 +1,32 @@
+  feedback_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == customer-feedback
+  feedback_customer:
+    type: string
+    when: type == customer-feedback
+  feedback_contact:
+    type: string
+    optional: true
+    when: type == customer-feedback
+  feedback_channel:
+    type: string
+    when: type == customer-feedback
+  feedback_sentiment:
+    type: string
+    when: type == customer-feedback
+  feedback_themes:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback
+  feedback_quotes:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback
+  feedback_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback

@@ -1,0 +1,15 @@
+  medical_record_person:
+    type: string
+    when: type == medical-record
+  medical_record_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == medical-record
+  medical_record_provider:
+    type: string
+    optional: true
+    when: type == medical-record
+  medical_record_kind:
+    type: string
+    optional: true
+    when: type == medical-record
