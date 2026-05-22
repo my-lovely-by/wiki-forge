@@ -1,0 +1,38 @@
+# Family recipe — vault shape for a household.
+#
+# Task 13 expanded the listing from the Task-10 baseline (just `core`)
+# to the four ontology / six content-type / four operation primitives
+# that the family audience needs out of the box. The recipe loader
+# resolves `requires:` transitively, so listing each leaf primitive is
+# enough — `people` arrives via `meeting`/`medical-record`, `food` via
+# `recipe`, etc.
+#
+# Conventions: alphabetical, one primitive per line, no `core`
+# (always installed). Adding a primitive here is a recipe-level change;
+# adding a content-type at the catalog level is a primitive-level change.
+name: family
+version: 0.2.0
+description: >-
+  Home knowledge base for a household: people, food, medical, trips,
+  vendors, and the operations that keep them coordinated (meal planning,
+  trip prep, follow-up tracking, medical summaries, weekly digest).
+primitives:
+  - action-item
+  - follow-up-tracker
+  - food
+  - meal-planning
+  - medical
+  - medical-record
+  - medical-summary
+  - meeting
+  - people
+  - receipt
+  - recipe
+  - tax-document
+  - trip-doc
+  - trip-prep
+  - trips
+  - vendors
+  - weekly-digest
+variables:
+  recipe_name: family

@@ -1,0 +1,40 @@
+# Work-OS recipe — vault shape for a professional knowledge base.
+#
+# Task 14 (RFC-0001) expands this recipe with the work-os primitives:
+# `projects`, `domains`, `customers` ontologies; `stakeholder-update`,
+# `vendor-contract`, `customer-feedback`, `interview`, `decision`
+# content-types; `stakeholder-map-refresh`, `action-item-rollup`,
+# `renewal-reminders`, `onboarding-pack`, `status-synthesis` operations.
+# `people` and `meeting` are pulled in transitively via `requires:`
+# from the content-types and operations that need them.
+#
+# Reading this in the future: the rule is "every primitive named here
+# must already exist in the catalog when this recipe lands on main."
+# Reach for `wiki add` for opt-in extensions on top of the baseline.
+#
+# Conventions: alphabetical, one primitive per line, no `core`
+# (always installed). Matches `family.yaml` / `personal.yaml`.
+name: work-os
+version: 0.2.0
+description: >-
+  Work knowledge base for a professional managing customers, projects,
+  and recurring deliverables. Bundles ingesters for stakeholder updates,
+  vendor contracts, customer feedback, interviews, and decisions, plus
+  the recurring synthesis operations a single operator needs to stay on
+  top of them.
+primitives:
+  - action-item-rollup
+  - customer-feedback
+  - customers
+  - decision
+  - domains
+  - interview
+  - onboarding-pack
+  - projects
+  - renewal-reminders
+  - stakeholder-map-refresh
+  - stakeholder-update
+  - status-synthesis
+  - vendor-contract
+variables:
+  recipe_name: work-os

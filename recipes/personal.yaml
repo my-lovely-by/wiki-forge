@@ -1,0 +1,79 @@
+# Personal recipe — vault shape for one individual.
+#
+# The personal recipe is *composition*, not invention. Every primitive
+# named here ships from `core/`, Task 11, Task 13 (family-recipe
+# primitives), Task 14 (work-os-recipe primitives), or this task's
+# `identity` ontology. If you reach a point where the personal audience
+# needs something neither family nor work-os ships, write a follow-up
+# task — don't sneak a new content-type or operation into this recipe.
+#
+# Closure notes (for the next maintainer):
+#
+# * `identity` (Task 15, this PR) — one durable page about the vault's
+#   owner. Personal-only; family/work-os do not ship it.
+# * `people`, `meeting`, `weekly-digest` (Task 11) — every audience
+#   needs a people graph, meeting notes, and a weekly summary. Pulled
+#   transitively too, but listing each leaf makes the intent explicit.
+# * `action-item`, `follow-up-tracker` (Task 13) — every audience
+#   needs follow-up tracking. The personal cadence is lighter than a
+#   household's, but the surface is the same.
+# * `food`, `recipe`, `meal-planning` (Task 13) — cooking is a
+#   first-class personal use case. `food` arrives transitively via
+#   `recipe`; listed for readability.
+# * `trips`, `trip-doc`, `trip-prep` (Task 13) — personal travel.
+#   Same reasoning: `trips` is transitive via `trip-doc`, listed for
+#   readability.
+# * `decision` (Task 14) — durable record of "what I chose, why, and
+#   what I considered." Useful for personal decisions (job offers,
+#   moves, big purchases) as well as work-os ones, and ships without
+#   any work-OS-shaped dependencies (no `projects`/`customers`).
+#
+# Deliberately excluded from the default closure:
+#
+# * `medical` / `medical-record` / `medical-summary` (Task 13) —
+#   medical data is sensitive enough that opt-in via `wiki add` is the
+#   safer default. A user who wants them runs
+#   `wiki add ontology:medical` (and the content-type / operation as
+#   needed); the personal recipe should not assume they want medical
+#   records in their default vault shape.
+# * `vendors` + `receipt` + `tax-document` (Task 13) — household-shape
+#   primitives. The personal audience is one individual; vendor /
+#   receipt / tax tracking is a household concern (joint expenses,
+#   shared service providers) that doesn't fit the one-person framing.
+# * `projects` / `domains` / `customers` ontologies + work-OS
+#   content-types (`stakeholder-update`, `vendor-contract`,
+#   `customer-feedback`, `interview`) + work-OS operations
+#   (`stakeholder-map-refresh`, `action-item-rollup`,
+#   `renewal-reminders`, `onboarding-pack`, `status-synthesis`) —
+#   work-OS shaped. The personal recipe is not a single-operator work
+#   vault; users who want both run two vaults.
+#
+# Conventions: alphabetical, one primitive per line, no `core`
+# (always installed). Adding a primitive here is a recipe-level change;
+# adding a content-type at the catalog level is a primitive-level change.
+name: personal
+version: 0.2.0
+description: >-
+  Personal knowledge base for one individual: identity, people,
+  meetings, cooking, trips, decisions, and a weekly digest plus
+  follow-up tracker to keep them coordinated.
+primitives:
+  - action-item
+  - decision
+  - follow-up-tracker
+  - food
+  - identity
+  - meal-planning
+  - meeting
+  - people
+  - recipe
+  - trip-doc
+  - trip-prep
+  - trips
+  - weekly-digest
+variables:
+  recipe_name: personal
+  owner_name: ""
+  owner_pronouns: ""
+  owner_role: ""
+  owner_timezone: ""
