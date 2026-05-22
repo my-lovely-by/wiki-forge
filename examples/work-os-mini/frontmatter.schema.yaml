@@ -1,0 +1,222 @@
+# frontmatter.schema.yaml — the contract every wiki page declares
+#
+# Vault: work-os-mini
+# Recipe: work-os
+#
+# Every page under wiki/ has YAML frontmatter that conforms to this
+# schema. Content-type primitives extend the `types`, `statuses`, and
+# `fields` sections via managed regions; the kit owns the inside of each
+# `# BEGIN MANAGED: id` / `# END MANAGED: id` block, your edits outside
+# the markers survive.
+
+required:
+  - type
+  - status
+  - provenance
+  - created
+  - modified
+
+# Allowed values for `type:`. Content-type primitives append to this list.
+types:
+  # BEGIN MANAGED: types
+  - customer-feedback
+  - interview
+  - meeting
+  - stakeholder-update
+  - decision
+  - vendor-contract
+  # END MANAGED: types
+
+# Allowed values for `status:`. Most pages start `active`; archive when
+# the underlying thing is no longer relevant; draft for in-progress
+# pages.
+statuses:
+  - active
+  - draft
+  - archived
+
+# Allowed values for `provenance:`.
+provenance:
+  - extracted    # verbatim from a source; cite in a footnote
+  - synthesized  # agent-written across multiple sources / prior pages
+  - mixed        # both
+
+# Field-level schema. The baseline below covers every page; content-type
+# primitives append type-scoped fields inside the managed region.
+fields:
+  type:
+    type: string
+  status:
+    type: string
+  provenance:
+    type: string
+  created:
+    type: date
+    format: YYYY-MM-DD
+  modified:
+    type: date
+    format: YYYY-MM-DD
+  tags:
+    type: list
+    items: string
+  source:
+    type: string
+    optional: true
+  # BEGIN MANAGED: fields
+  feedback_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == customer-feedback
+  feedback_customer:
+    type: string
+    when: type == customer-feedback
+  feedback_contact:
+    type: string
+    optional: true
+    when: type == customer-feedback
+  feedback_channel:
+    type: string
+    when: type == customer-feedback
+  feedback_sentiment:
+    type: string
+    when: type == customer-feedback
+  feedback_themes:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback
+  feedback_quotes:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback
+  feedback_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == customer-feedback
+  interview_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == interview
+  interview_subject:
+    type: string
+    when: type == interview
+  interview_purpose:
+    type: string
+    when: type == interview
+  interview_questions:
+    type: list
+    items: string
+    optional: true
+    when: type == interview
+  interview_findings:
+    type: list
+    items: string
+    optional: true
+    when: type == interview
+  interview_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == interview
+  meeting_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == meeting
+  meeting_attendees:
+    type: list
+    items: string
+    when: type == meeting
+  meeting_decisions:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting
+  meeting_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting
+  update_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == stakeholder-update
+  update_project:
+    type: string
+    when: type == stakeholder-update
+  update_audience:
+    type: list
+    items: string
+    when: type == stakeholder-update
+  update_status:
+    type: string
+    when: type == stakeholder-update
+  update_highlights:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update
+  update_risks:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update
+  update_asks:
+    type: list
+    items: string
+    optional: true
+    when: type == stakeholder-update
+  decision_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == decision
+  decision_owner:
+    type: string
+    when: type == decision
+  decision_status:
+    type: string
+    when: type == decision
+  decision_context:
+    type: string
+    optional: true
+    when: type == decision
+  decision_alternatives:
+    type: list
+    items: string
+    optional: true
+    when: type == decision
+  decision_supersedes:
+    type: string
+    optional: true
+    when: type == decision
+  contract_vendor:
+    type: string
+    when: type == vendor-contract
+  contract_start:
+    type: date
+    format: YYYY-MM-DD
+    when: type == vendor-contract
+  contract_end:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == vendor-contract
+  contract_renewal_date:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == vendor-contract
+  contract_amount:
+    type: string
+    optional: true
+    when: type == vendor-contract
+  contract_owner:
+    type: string
+    when: type == vendor-contract
+  contract_terms_summary:
+    type: list
+    items: string
+    optional: true
+    when: type == vendor-contract
+  # END MANAGED: fields
