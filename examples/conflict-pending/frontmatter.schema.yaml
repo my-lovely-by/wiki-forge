@@ -1,0 +1,156 @@
+# frontmatter.schema.yaml — the contract every wiki page declares
+#
+# Vault: conflict-pending
+# Recipe: personal
+#
+# Every page under wiki/ has YAML frontmatter that conforms to this
+# schema. Content-type primitives extend the `types`, `statuses`, and
+# `fields` sections via managed regions; the kit owns the inside of each
+# `# BEGIN MANAGED: id` / `# END MANAGED: id` block, your edits outside
+# the markers survive.
+
+required:
+  - type
+  - status
+  - provenance
+  - created
+  - modified
+
+# Allowed values for `type:`. Content-type primitives append to this list.
+types:
+  # BEGIN MANAGED: types
+  - action-item
+  - decision
+  - recipe
+  - meeting
+  - trip-doc
+  # END MANAGED: types
+
+# Allowed values for `status:`. Most pages start `active`; archive when
+# the underlying thing is no longer relevant; draft for in-progress
+# pages.
+statuses:
+  - active
+  - draft
+  - archived
+
+# Allowed values for `provenance:`.
+provenance:
+  - extracted    # verbatim from a source; cite in a footnote
+  - synthesized  # agent-written across multiple sources / prior pages
+  - mixed        # both
+
+# Field-level schema. The baseline below covers every page; content-type
+# primitives append type-scoped fields inside the managed region.
+fields:
+  type:
+    type: string
+  status:
+    type: string
+  provenance:
+    type: string
+  created:
+    type: date
+    format: YYYY-MM-DD
+  modified:
+    type: date
+    format: YYYY-MM-DD
+  tags:
+    type: list
+    items: string
+  source:
+    type: string
+    optional: true
+  # BEGIN MANAGED: fields
+  action_item_owner:
+    type: string
+    when: type == action-item
+  action_item_due:
+    type: date
+    format: YYYY-MM-DD
+    optional: true
+    when: type == action-item
+  action_item_state:
+    type: string
+    when: type == action-item
+  action_item_source:
+    type: string
+    optional: true
+    when: type == action-item
+  decision_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == decision
+  decision_owner:
+    type: string
+    when: type == decision
+  decision_status:
+    type: string
+    when: type == decision
+  decision_context:
+    type: string
+    optional: true
+    when: type == decision
+  decision_alternatives:
+    type: list
+    items: string
+    optional: true
+    when: type == decision
+  decision_supersedes:
+    type: string
+    optional: true
+    when: type == decision
+  recipe_servings:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_prep_time:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_cook_time:
+    type: string
+    optional: true
+    when: type == recipe
+  recipe_dietary:
+    type: list
+    items: string
+    optional: true
+    when: type == recipe
+  meeting_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == meeting
+  meeting_attendees:
+    type: list
+    items: string
+    when: type == meeting
+  meeting_decisions:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting
+  meeting_follow_ups:
+    type: list
+    items: string
+    optional: true
+    when: type == meeting
+  trip_destination:
+    type: string
+    when: type == trip-doc
+  trip_start_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == trip-doc
+  trip_end_date:
+    type: date
+    format: YYYY-MM-DD
+    when: type == trip-doc
+  trip_travelers:
+    type: list
+    items: string
+    when: type == trip-doc
+  trip_status:
+    type: string
+    when: type == trip-doc
+  # END MANAGED: fields
