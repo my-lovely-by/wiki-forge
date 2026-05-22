@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-wiki-kit"
+version = "2.0.0"
+description = "A kit for building LLM-maintained markdown wikis: common core, primitive catalog, and recipes."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "Eu Gene Lim" }]
+keywords = ["llm", "wiki", "obsidian", "claude", "knowledge-management"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = [
+    "pyyaml>=6",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "types-PyYAML",
+    "build>=1",
+]
+
+[project.scripts]
+wiki = "llm_wiki_kit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/eugenelim/llm-wiki-kit"
+Issues = "https://github.com/eugenelim/llm-wiki-kit/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["llm_wiki_kit"]
+
+# Relocate the runtime asset trees into the package under ``_assets/``
+# so they ship inside the wheel and ``importlib.resources.files`` can
+# resolve them at runtime. The source tree keeps ``recipes/``, ``core/``,
+# and ``templates/`` at the top level for catalog-editing ergonomics;
+# the wheel relocation is build-time only.
+# See ``docs/specs/wheel-bundled-assets/spec.md``.
+[tool.hatch.build.targets.wheel.force-include]
+"recipes" = "llm_wiki_kit/_assets/recipes"
+"core" = "llm_wiki_kit/_assets/core"
+"templates" = "llm_wiki_kit/_assets/templates"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "RUF", # ruff-specific
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["llm_wiki_kit", "tests"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The `-m` filter applies to path-based selection too: explicit
+# `pytest tests/evals/x.py` will report "0 collected, N deselected"
+# until you add `-m eval`. Authoring guide documents the workaround;
+# every eval file carries a top-level pytestmark for visibility.
+addopts = "-ra --strict-markers -m 'not slow and not eval'"
+markers = [
+    "slow: marks tests that build/install a wheel (run via `pytest -m slow` or the wheel-acceptance CI job)",
+    "eval: marks tests under tests/evals/ that drive Claude Code via subprocess (run via the evals CI workflow or `pytest tests/evals -m eval`)",
+]
